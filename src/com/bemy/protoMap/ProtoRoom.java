@@ -17,8 +17,8 @@ public class ProtoRoom extends View {
 		//initialize
 		redPaint=new Paint();
 		redPaint.setColor(Color.RED);
-		circleX=200;
-		circleY=200;
+		circleX=500;
+		circleY=500;
 		radius=50;
 	}
 	
