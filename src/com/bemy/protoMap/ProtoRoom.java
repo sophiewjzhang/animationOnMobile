@@ -6,11 +6,14 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Canvas;
 
+import com.bemy.protoMap.core.geom.*;
+
 public class ProtoRoom extends View {
 	private Paint redPaint;
 	private int circleX;
 	private int circleY;
 	private float radius;
+	
 	
 	public ProtoRoom(Context context){
 		super(context);
