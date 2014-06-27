@@ -3,7 +3,7 @@ package com.bemy.protoMap.core.geom;
 import java.io.Serializable;
 
 public class Vector2f implements Serializable{
-	private static final long serialVersionUID = 2000000L;
+	private static final long serialVersionUID = -2000000L;
 	public float x;
 	public float y;
 	
