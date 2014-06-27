@@ -1,18 +1,21 @@
 package com.bemy.protoMap.core.geom;
 
-public abstract class Point extends shapeAbs{
-	private static final long serialVersionUID = 2L;
-	private int size=1;
+public class Point extends shape{
+	private static final long serialVersionUID = 1120000L;
 	
-	public Point(float x, float y){
-		this.setLocation(x, y);
-		this.setWidth(size);
-		this.setHeight(size);
+	public Point(){
+		this.x=0;
+		this.y=0;
+	}	
+	public Point(int x, int y){
+		this.setPosition(x, y);
 	}
-	public void setSize(int s){
-		this.size=s;
+	public void setPixels(){
+		Vector2f _point=new Vector2f(this.x, this.y);
+		this.pixels.add(_point);
 	}
-	public int getSize(){
-		return this.size;
+	//return in format (x,y)
+	public String ToString(){
+		return "("+this.x+","+this.y+")";
 	}
 }

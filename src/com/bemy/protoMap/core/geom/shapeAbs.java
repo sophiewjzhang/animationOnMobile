@@ -1,49 +1,67 @@
 package com.bemy.protoMap.core.geom;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+/*
+ * Properties:
+ * x
+ * y
+ * width
+ * height
+ * area
+ * boundary
+ */
 public abstract class shapeAbs implements shapeInt, Serializable{	
-	private static final long serialVersionUID = 1L;
-	private float x;
-	private float y;
-	private float width;
-	private float height;
-	private Rectangle boundary;
+	private static final long serialVersionUID = 1000000L;
+	protected float x;
+	protected float y;
+	protected float width;
+	protected float height;
+	protected float area;
+	protected Rectangle boundary;
+	protected ArrayList<Vector2f> pixels=new ArrayList<Vector2f>();
 	
 	protected shapeAbs(){
 	}
-	public float X(){
+	public float x(){
 		return x;
 	}
-	public float Y(){
+	public float y(){
 		return y;
 	}
-	public void setLocation(float x, float y){
-		this.x=x;
-		this.y=y;
-	}
-	public float Width(){
+	public float width(){
 		return width;
 	}
-	public float Height(){
+	public float height(){
 		return height;
 	}
-	public void setWidth(float w){
-		this.width=w;
-	}
-	public void setHeight(float h){
-		this.height=h;
+	public float area(){
+		return area;
 	}
 	public Rectangle getBounds(){
 		return boundary;
 	}
-	public  boolean contains(Point p){
-		return this.getBounds().contains(p);
+	public void setWidth(float p_w){
+		this.width=p_w;
 	}
-	public boolean contains(shape s){
-		return this.getBounds().contains(s);
+	public void setHeight(float p_h){
+		this.height=p_h;
 	}
-	public boolean intersect(shape s){
-		return this.getBounds().intersect(s);
+	public void setPosition(float p_x, float p_y){
+		this.x=p_x;
+		this.y=p_y;
+	}
+	public abstract void setPixels();
+	public ArrayList<Vector2f> getPixels(){
+		return this.pixels;
+	}
+	public  boolean contains(Point p_p){
+		return this.getBounds().contains(p_p);
+	}
+	public boolean contains(shape p_s){
+		return this.getBounds().contains(p_s);
+	}
+	public boolean intersect(shape p_s){
+		return this.getBounds().intersect(p_s);
 	}
 }
