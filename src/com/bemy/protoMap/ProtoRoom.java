@@ -13,6 +13,8 @@ public class ProtoRoom extends View {
 	private int circleX;
 	private int circleY;
 	private float radius;
+	private float[] points;
+	private storeGrocery store1;
 	
 	
 	public ProtoRoom(Context context){
@@ -23,10 +25,23 @@ public class ProtoRoom extends View {
 		circleX=500;
 		circleY=500;
 		radius=50;
+		
+		store1=new storeGrocery();
+		points=store1.getPixels();
+		
 	}
+	
 	
 	@Override
 	protected void onDraw(Canvas canvas){
-		canvas.drawCircle( circleX, circleY, radius, redPaint);
+		//canvas.drawCircle( circleX, circleY, radius, redPaint);
+		canvas.translate(100, 100);
+		redPaint.setColor(Color.YELLOW);
+		redPaint.setStrokeWidth(10);
+		for( int i=0; i<points.length; i+=2){
+			//System.out.println( "i:"+ i+":"+points[i]);
+			canvas.drawPoint(points[i], points[i+1], redPaint);
+		}		
+
 	}
 }

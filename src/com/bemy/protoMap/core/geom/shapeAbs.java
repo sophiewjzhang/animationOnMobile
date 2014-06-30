@@ -52,8 +52,18 @@ public abstract class shapeAbs implements shapeInt, Serializable{
 		this.y=p_y;
 	}
 	public abstract void setPixels();
-	public ArrayList<Vector2f> getPixels(){
-		return this.pixels;
+	//public ArrayList<Vector2f> getPixels(){
+	public float[] getPixels(){	
+		//return this.pixels.toArray();
+		int numPixels=this.pixels.size()*2;
+		float[] finalPixels=new float[numPixels];
+		int j=0;
+		for (int i = 0; i < this.pixels.size(); i++) {
+			finalPixels[j] = this.pixels.get(i).x;
+			finalPixels[j+1] = this.pixels.get(i).y;
+			j+=2;
+		}
+		return finalPixels;
 	}
 	public  boolean contains(Point p_p){
 		return this.getBounds().contains(p_p);

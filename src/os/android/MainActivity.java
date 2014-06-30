@@ -1,4 +1,5 @@
-package com.bemy.protoMap;
+package os.android;
+import com.bemy.protoMap.*;
 
 import android.app.Activity;
 import android.os.Bundle;

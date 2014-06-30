@@ -1,5 +1,4 @@
 package com.bemy.protoMap.util;
-import com.bemy.protoMap.core.geom.Point;
 
 public class sMath {
 	static public final float min(float a, float b) {

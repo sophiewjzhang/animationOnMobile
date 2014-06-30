@@ -1,19 +1,56 @@
 package com.bemy.protoMap.core.geom;
 
-public abstract class Line extends shape{
+public class Line extends shape{
 	private static final long serialVersionUID = 1110000L;
-	private Vector2f startPoint, endPoint;
+	private int startX,endX,startY,endY;
 	
-	public Line(int startX,int endX, int startY,int endY){
-		this.startPoint=new Vector2f( startX, startY);
-		this.endPoint=new Vector2f( endX, endY);
+	public Line(int p_startX,int p_endX, int p_startY,int p_endY){
+		//this.startPoint=new Vector2f( startX, startY);
+		//this.endPoint=new Vector2f( endX, endY);
+		startX=p_startX;
+		endX=p_endX;
+		startY=p_startY;
+		endY=p_endY;
 		this.setPixels();
 	}
-	public void setPixels(int startX,int endX, int startY,int endY){
-		int dx=endX-startX;
-		int dy=endY-startY;
+	@Override
+	public void setPixels() {
+		int dx=Math.abs(endX-startX);
+		int dy=Math.abs(endY-startY);
+		float slope=dy/dx;
+		int dp=2*dy-dx;
+		int sx=(endX-startX)>0?1:-1;
+		int sy=(endY-startY)>0?1:-1;
 		
-		Vector2f _point=new Vector2f(this.x, this.y);
-		this.pixels.add(_point);
+		this.pixels.add(new Vector2f(0, 0));
+		if( slope < 1){
+			while( startX != endX ){
+				startX += sx;
+				if( dp <0 ){
+				dp +=2*dy;				
+				}else{
+				dp += 2*(dy-dx);
+				startY += sy;
+				}
+				this.pixels.add(new Vector2f(startX, startY));	
+
+			}
+
+		}else{
+			while( startY != endY ){
+				startY += sy;
+				if( dp <0 ){
+				dp +=2*dx;				
+				}else{
+				dp += 2*(dx-dy);
+				startX += sx;
+				}
+				this.pixels.add(new Vector2f(startX, startY));	
+
+			}
+
+		}
+
 	}
+
 }
