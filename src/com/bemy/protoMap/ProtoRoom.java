@@ -35,9 +35,9 @@ public class ProtoRoom extends View {
 	@Override
 	protected void onDraw(Canvas canvas){
 		//canvas.drawCircle( circleX, circleY, radius, redPaint);
-		canvas.translate(300, 400);
+		canvas.translate(100, 100);
 		redPaint.setColor(Color.YELLOW);
-		redPaint.setStrokeWidth(5);
+		redPaint.setStrokeWidth(10);
 		for( int i=0; i<points.length; i+=2){
 			//System.out.println( "i:"+ i+":"+points[i]);
 			canvas.drawPoint(points[i], points[i+1], redPaint);
