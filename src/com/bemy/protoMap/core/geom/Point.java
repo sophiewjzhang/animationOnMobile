@@ -7,9 +7,6 @@ public class Point extends shape{
 		this.x=0;
 		this.y=0;
 	}	
-	public Point(int x, int y){
-		this.setPosition(x, y);
-	}
 	public void setPixels(){
 		Vector2f _point=new Vector2f(this.x, this.y);
 		this.pixels.add(_point);

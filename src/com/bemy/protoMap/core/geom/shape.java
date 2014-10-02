@@ -6,9 +6,6 @@ public abstract class shape extends shapeAbs implements shapeInt{
 	public shape(){
 		this.setPosition(0, 0);
 	}
-	public shape(float x, float y){
-		this.setPosition(x, y);
-	}
 	public void moveTo(float x, float y){
 		this.setPosition(x, y);
 	}

@@ -13,8 +13,9 @@ public class ProtoRoom extends View {
 	private int circleX;
 	private int circleY;
 	private float radius;
-	private float[] points;
+	private float[] points, points_poly, points_circle, points_line;
 	private storeGrocery store1;
+	private Canvas myCanvas;
 	
 	
 	public ProtoRoom(Context context){
@@ -28,20 +29,28 @@ public class ProtoRoom extends View {
 		
 		store1=new storeGrocery();
 		points=store1.getPixels();
-		
+		//draw shapes in store1
+		points_poly=store1.drawPolygon(6, 150);
 	}
 	
 	
 	@Override
 	protected void onDraw(Canvas canvas){
 		//canvas.drawCircle( circleX, circleY, radius, redPaint);
-		canvas.translate(300, 400);
+		myCanvas=canvas;
+		myCanvas.translate(300, 400);
 		redPaint.setColor(Color.YELLOW);
 		redPaint.setStrokeWidth(5);
-		for( int i=0; i<points.length; i+=2){
-			//System.out.println( "i:"+ i+":"+points[i]);
-			canvas.drawPoint(points[i], points[i+1], redPaint);
-		}		
+		plotPixels(points);	
+		redPaint.setStrokeWidth(20);
+		redPaint.setColor(Color.RED);
+		plotPixels(points_poly);	
 
+	}
+	private void plotPixels(float[] _points){
+		for( int i=0, l = _points.length; i<l; i+=2){
+			//System.out.println( "i:"+ i+":"+points[i]);
+			myCanvas.drawPoint(_points[i], _points[i+1], redPaint);
+		}
 	}
 }
