@@ -15,6 +15,7 @@ public class Polygon extends shape{
 	public int getSides(){
 		return this.sides;
 	}
+	
 	@Override
 	public void setPixels() {
 		  if( sides <0)return;
@@ -23,7 +24,11 @@ public class Polygon extends shape{
 		  for( int i=0;i<sides;i++){
 		    dx=radius*Math.round(Math.sin( step*i)*100)/100;
 		    dy=radius*Math.round(Math.cos( step*i)*100)/100;
-		    this.pixels.add(new Vector2f(dx, dy));	
+		    this.vertexPixels.add(new Vector2f(dx, dy));	
 		  }
 	}
+	/*
+	 * private functions
+	 */
+	
 }

@@ -19,7 +19,9 @@ public abstract class shapeAbs implements shapeInt, Serializable{
 	protected float height;
 	protected float area;
 	protected Rectangle boundary;
-	protected ArrayList<Vector2f> pixels=new ArrayList<Vector2f>();
+	protected ArrayList<Vector2f> 
+				pixels=new ArrayList<Vector2f>(),
+				vertexPixels=new ArrayList<Vector2f>();
 	
 	protected shapeAbs(){
 	}
@@ -54,16 +56,10 @@ public abstract class shapeAbs implements shapeInt, Serializable{
 	public abstract void setPixels();
 	//public ArrayList<Vector2f> getPixels(){
 	public float[] getPixels(){	
-		//return this.pixels.toArray();
-		int numPixels=this.pixels.size()*2;
-		float[] finalPixels=new float[numPixels];
-		int j=0;
-		for (int i = 0; i < this.pixels.size(); i++) {
-			finalPixels[j] = this.pixels.get(i).x;
-			finalPixels[j+1] = this.pixels.get(i).y;
-			j+=2;
-		}
-		return finalPixels;
+		return flatArrayList(this.pixels);
+	}
+	public float[] getVertex(){
+		return flatArrayList(this.vertexPixels);
 	}
 	public  boolean contains(Point p_p){
 		return this.getBounds().contains(p_p);
@@ -73,5 +69,21 @@ public abstract class shapeAbs implements shapeInt, Serializable{
 	}
 	public boolean intersect(shape p_s){
 		return this.getBounds().intersect(p_s);
+	}
+	/*
+	 * private functions
+	 */
+	private float[] flatArrayList(ArrayList<Vector2f> p_al ){	
+		//return this.pixels.toArray();
+		ArrayList<Vector2f> _dataIn=p_al;
+		int _length=_dataIn.size();
+		float[] _finalPixels=new float[_length*2];
+		int j=0;
+		for (int i = 0; i < _length; i++) {
+			_finalPixels[j] = _dataIn.get(i).x;
+			_finalPixels[j+1] = _dataIn.get(i).y;
+			j+=2;
+		}
+		return _finalPixels;
 	}
 }

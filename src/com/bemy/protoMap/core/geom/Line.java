@@ -4,12 +4,32 @@ public class Line extends shape{
 	private static final long serialVersionUID = 1110000L;
 	private float startX,endX,startY,endY;
 	
-	public Line(float p_startX,float p_endX, float p_startY,float p_endY){
+	public Line(float p_startX,float p_startY,float p_endX,float p_endY){
 		//this.startPoint=new Vector2f( startX, startY);
 		//this.endPoint=new Vector2f( endX, endY);
+		//set default starting from (0,0)
+/*		if( !p_startX || !p_startY){
+			return;
+		}
+		if( !p_startY && !p_endY){
+			p_endX=p_startX;	
+			p_endY=p_startY;
+			p_startX=0;
+			p_startY=0;
+		}*/
 		startX=p_startX;
 		endX=p_endX;
 		startY=p_startY;
+		endY=p_endY;
+		this.setPixels();
+	}
+	/*
+	 * draw a line starting from the cursor position to the end point(p_x, p_y)
+	 */
+	public void lineTo(float p_endX, float p_endY){
+		startX=0;
+		endX=p_endX;
+		startY=0;
 		endY=p_endY;
 		this.setPixels();
 	}
