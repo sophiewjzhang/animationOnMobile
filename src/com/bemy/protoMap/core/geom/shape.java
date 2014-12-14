@@ -1,3 +1,14 @@
+/*
+ * The shape family is based on Cartesian coordinate system, and output integer points.
+ * Shape list
+ * *********Point
+ * *********Line
+ * *********Ellipse
+ * *********Circle
+ * *********Rectangle
+ * *********Polygon
+ * *********Bezier Curve
+ */
 package com.bemy.protoMap.core.geom;
 
 public abstract class shape extends shapeAbs implements shapeInt{
@@ -6,7 +17,7 @@ public abstract class shape extends shapeAbs implements shapeInt{
 	public shape(){
 		this.setPosition(0, 0);
 	}
-	public void moveTo(float x, float y){
+	public void moveTo(int x, int y){
 		this.setPosition(x, y);
 	}
 }

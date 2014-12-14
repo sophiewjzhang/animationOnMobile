@@ -29,7 +29,7 @@ public class Ellipse extends shape{
 				dotY--;
 				dp +=-4*rxSRT*2*dotY;
 			}
-			plotPixels(dotX, dotY);
+			plotPixels_ellipse(dotX, dotY);
 		}
 		while( dotY >= 1 ){
 			dotY--;
@@ -38,11 +38,11 @@ public class Ellipse extends shape{
 				dotX++;
 				dp +=4*rySRT*2*dotX;
 			}
-			plotPixels(dotX, dotY);
+			plotPixels_ellipse(dotX, dotY);
 		}
 	}
 	
-	private void plotPixels(int dotX, int dotY){
+	private void plotPixels_ellipse(int dotX, int dotY){
 		this.pixels.add(new Vector2f(dotX, dotY));
 		this.pixels.add(new Vector2f(dotX, -dotY));
 		this.pixels.add(new Vector2f(-dotX, dotY));

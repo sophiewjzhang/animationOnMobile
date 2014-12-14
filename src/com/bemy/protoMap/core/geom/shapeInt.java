@@ -1,13 +1,13 @@
 package com.bemy.protoMap.core.geom;
 
 public interface shapeInt{	
-	float x();
-	float y();
-	float width();
-	float height();
-	void setWidth(float w);
-	void setHeight(float h);
-	void setPosition(float x, float y);
+	int x();
+	int y();
+	int width();
+	int height();
+	void setWidth(int w);
+	void setHeight(int h);
+	void setPosition(int x, int y);
 	Rectangle getBounds();
 	//test if the specified point is contained.
 	boolean contains(Point p);

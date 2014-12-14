@@ -11,7 +11,7 @@ public class storeGrocery extends field2DStore{
 	private Circle smallCircle;
 	private Ellipse smallEllipse;
 	private Polygon fiveSidePoly=new Polygon(5, 150);
-	private float[] pixels;
+	private int[] pixels;
 	
 	public storeGrocery(){
 		Line leftLine=new Line(0, 200, 0, 1000);
@@ -27,8 +27,9 @@ public class storeGrocery extends field2DStore{
 		fiveSidePoly.setPixels();
 	}
 	
-	public float[] drawPolygon(int sides, int radius){
-		float[] _pixels={}, poly_pixels;
+	public int[] drawPolygon(int sides, int radius){
+		float[] _pixels={};
+		int[] poly_pixels;
 		Polygon fiveSidePoly=new Polygon(sides, radius);
 		poly_pixels=fiveSidePoly.getPixels();
 		
@@ -43,7 +44,7 @@ public class storeGrocery extends field2DStore{
 		//return _pixels;
 		return poly_pixels;
 	}
-	public float[] getPixels(){
+	public int[] getPixels(){
 		return this.pixels; 
 	}
 	public Line leftLine(Point p1, Point p2){

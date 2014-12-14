@@ -4,21 +4,21 @@ import java.io.Serializable;
 
 public class Vector2f implements Serializable{
 	private static final long serialVersionUID = -2000000L;
-	public float x;
-	public float y;
+	public int x;
+	public int y;
 	
 	public Vector2f(){
 		this.x = 0;
 		this.y = 0;
 	}
-	public Vector2f(float x, float y) {
+	public Vector2f(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-	public float x(){
+	public int x(){
 		return this.x;
 	}
-	public float y(){
+	public int y(){
 		return this.y;
 	}
 	//return in format (x,y)

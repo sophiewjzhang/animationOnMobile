@@ -2,21 +2,9 @@ package com.bemy.protoMap.core.geom;
 
 public class Line extends shape{
 	private static final long serialVersionUID = 1110000L;
-	private float startX,endX,startY,endY;
+	private int startX,endX,startY,endY;
 	
-	public Line(float p_startX,float p_startY,float p_endX,float p_endY){
-		//this.startPoint=new Vector2f( startX, startY);
-		//this.endPoint=new Vector2f( endX, endY);
-		//set default starting from (0,0)
-/*		if( !p_startX || !p_startY){
-			return;
-		}
-		if( !p_startY && !p_endY){
-			p_endX=p_startX;	
-			p_endY=p_startY;
-			p_startX=0;
-			p_startY=0;
-		}*/
+	public Line(int p_startX,int p_startY,int p_endX,int p_endY){
 		startX=p_startX;
 		endX=p_endX;
 		startY=p_startY;
@@ -25,8 +13,11 @@ public class Line extends shape{
 	}
 	/*
 	 * draw a line starting from the cursor position to the end point(p_x, p_y)
+	 * Bresenham algorithm
+	 * Use only integer value to calculate the points on the line. 
+	 * 
 	 */
-	public void lineTo(float p_endX, float p_endY){
+	public void lineTo(int p_endX, int p_endY){
 		startX=0;
 		endX=p_endX;
 		startY=0;
@@ -35,12 +26,12 @@ public class Line extends shape{
 	}
 	@Override
 	public void setPixels() {
-		float dx=Math.abs(endX-startX);
-		float dy=Math.abs(endY-startY);
-		float slope=dy/dx;
-		float dp=2*dy-dx;
-		float sx=(endX-startX)>0?1:-1;
-		float sy=(endY-startY)>0?1:-1;
+		int dx=Math.abs(endX-startX);
+		int dy=Math.abs(endY-startY);
+		int slope=dy/dx;
+		int dp=2*dy-dx;
+		int sx=(endX-startX)>0?1:-1;
+		int sy=(endY-startY)>0?1:-1;
 		
 		this.pixels.add(new Vector2f(0, 0));
 		if( slope < 1){
@@ -51,11 +42,9 @@ public class Line extends shape{
 				}else{
 				dp += 2*(dy-dx);
 				startY += sy;
-				}
-				this.pixels.add(new Vector2f(startX, startY));	
-
+				}	
+				this.plotPixels(startX, startY);
 			}
-
 		}else{
 			while( startY != endY ){
 				startY += sy;
@@ -65,12 +54,8 @@ public class Line extends shape{
 				dp += 2*(dx-dy);
 				startX += sx;
 				}
-				this.pixels.add(new Vector2f(startX, startY));	
-
+				this.plotPixels(startX, startY);
 			}
-
 		}
-
 	}
-
 }

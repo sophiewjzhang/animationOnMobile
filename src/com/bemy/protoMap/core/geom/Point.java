@@ -8,8 +8,7 @@ public class Point extends shape{
 		this.y=0;
 	}	
 	public void setPixels(){
-		Vector2f _point=new Vector2f(this.x, this.y);
-		this.pixels.add(_point);
+		this.plotPixels(this.x, this.y);
 	}
 	//return in format (x,y)
 	public String ToString(){

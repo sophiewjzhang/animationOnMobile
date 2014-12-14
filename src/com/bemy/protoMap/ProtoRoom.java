@@ -13,7 +13,9 @@ public class ProtoRoom extends View {
 	private int circleX;
 	private int circleY;
 	private float radius;
-	private float[] points, points_poly, points_circle, points_line;
+	int[] points;
+	int[] points_poly;
+	private float[] points_circle, points_line;
 	private storeGrocery store1;
 	private Canvas myCanvas;
 	
@@ -41,13 +43,13 @@ public class ProtoRoom extends View {
 		myCanvas.translate(300, 400);
 		redPaint.setColor(Color.YELLOW);
 		redPaint.setStrokeWidth(5);
-		plotPixels(points);	
+		plotPixels_room(points);	
 		redPaint.setStrokeWidth(20);
 		redPaint.setColor(Color.RED);
-		plotPixels(points_poly);	
+		plotPixels_room(points_poly);	
 
 	}
-	private void plotPixels(float[] _points){
+	private void plotPixels_room(int[] _points){
 		for( int i=0, l = _points.length; i<l; i+=2){
 			//System.out.println( "i:"+ i+":"+points[i]);
 			myCanvas.drawPoint(_points[i], _points[i+1], redPaint);

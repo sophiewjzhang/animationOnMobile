@@ -23,7 +23,7 @@ public class Circle extends shape{
 			if( dp >=0){
 				dx--;
 				dp -=2*dx;
-			}
+			}			
 			this.pixels.add(new Vector2f(dx, startY));
 			this.pixels.add(new Vector2f(startY, dx));
 			this.pixels.add(new Vector2f(dx, -startY));
