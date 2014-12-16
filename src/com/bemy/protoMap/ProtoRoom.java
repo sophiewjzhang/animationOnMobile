@@ -12,10 +12,10 @@ public class ProtoRoom extends View {
 	private Paint redPaint;
 	private int circleX;
 	private int circleY;
-	private float radius;
+	private int radius;
 	int[] points;
 	int[] points_poly;
-	private float[] points_circle, points_line;
+	private int[] points_circle, points_line;
 	private storeGrocery store1;
 	private Canvas myCanvas;
 	

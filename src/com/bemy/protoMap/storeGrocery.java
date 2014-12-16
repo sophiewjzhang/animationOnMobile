@@ -14,24 +14,27 @@ public class storeGrocery extends field2DStore{
 	private int[] pixels;
 	
 	public storeGrocery(){
-		Line leftLine=new Line(0, 200, 0, 1000);
-		//pixels=leftLine.getPixels();
+		/*
+		 * tested successfully on Dec. 15, 2014
+		 */
 		
-		smallCircle= new Circle(200);
+		Line leftLine=new Line(0, 0, 200, 500);
+		pixels=leftLine.getPixels();
+		
+		//smallCircle= new Circle(200);
 		//pixels=smallCircle.getPixels();
 		
-		smallEllipse=new Ellipse(175, 350);
-		pixels=smallEllipse.getPixels();
+		//smallEllipse=new Ellipse(175, 350);
+		//pixels=smallEllipse.getPixels();
 		
-		fiveSidePoly=new Polygon(5, 150);
-		fiveSidePoly.setPixels();
+		//end of test case
+		
 	}
 	
 	public int[] drawPolygon(int sides, int radius){
-		float[] _pixels={};
 		int[] poly_pixels;
 		Polygon fiveSidePoly=new Polygon(sides, radius);
-		poly_pixels=fiveSidePoly.getPixels();
+		poly_pixels=fiveSidePoly.getVertex();
 		
 /*		List list = new ArrayList(Arrays.asList(_pixels));
 	      
