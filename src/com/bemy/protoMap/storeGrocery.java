@@ -11,22 +11,27 @@ public class storeGrocery extends field2DStore{
 	private Circle smallCircle;
 	private Ellipse smallEllipse;
 	private Polygon fiveSidePoly=new Polygon(5, 150);
-	private int[] pixels;
+	private int[] pixels, ctrlPixels, pixels2;
 	
 	public storeGrocery(){
 		/*
 		 * tested successfully on Dec. 15, 2014
 		 */
 		
-		Line leftLine=new Line(0, 0, 200, 500);
-		pixels=leftLine.getPixels();
+		//Line leftLine=new Line(0, 0, 200, 500);
+		//pixels=leftLine.getPixels();
 		
 		//smallCircle= new Circle(200);
 		//pixels=smallCircle.getPixels();
 		
 		//smallEllipse=new Ellipse(175, 350);
 		//pixels=smallEllipse.getPixels();
+		Bezier smallCurve = new Bezier( 0, 0, 40, 200, 400, 100);
+		ctrlPixels = smallCurve.getPixels();
+		pixels = smallCurve.getAllPixels();
 		
+		Bezier smallCurve2 = new Bezier( 50, 250, 100, 700, 500, 100);
+		pixels2 = smallCurve2.getAllPixels();
 		//end of test case
 		
 	}
@@ -49,6 +54,9 @@ public class storeGrocery extends field2DStore{
 	}
 	public int[] getPixels(){
 		return this.pixels; 
+	}
+	public int[] getPixels2(){
+		return this.pixels2; 
 	}
 	public Line leftLine(Point p1, Point p2){
 		return leftLine;		

@@ -1,5 +1,8 @@
+package com.bemy.protoMap.core.geom;
 /*
- * The shape family is based on Cartesian coordinate system, and output integer points.
+ * @name shapeAbs
+ * @description:  the shape family is based on Cartesian coordinate system.
+ * Each shape outputs integer points. 
  * Shape list
  * *********Point
  * *********Line
@@ -8,9 +11,9 @@
  * *********Rectangle
  * *********Polygon
  * *********Bezier Curve
+ * Public Methods:
+ * ---------public void moveTo(int x, int y): move the shape to a new position.
  */
-package com.bemy.protoMap.core.geom;
-
 public abstract class shape extends shapeAbs implements shapeInt{
 	private static final long serialVersionUID = 1100000L;
 	

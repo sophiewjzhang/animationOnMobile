@@ -1,4 +1,4 @@
-package com.bemy.protoMap.core.input;
+package com.bemy.protoMap.core.io;
 
 public class touch extends touchAbs{
 	

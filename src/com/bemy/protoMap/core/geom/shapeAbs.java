@@ -3,13 +3,16 @@ package com.bemy.protoMap.core.geom;
 import java.io.Serializable;
 import java.util.ArrayList;
 /*
+ * @name shapeAbs
+ * @description: abstract class implementing the shape interface
  * Properties:
- * x
- * y
- * width
- * height
- * area
- * boundary
+ * ----------area
+ * Public Methods:
+ * ----------public abstract void setPixels(): set the points array.
+ * ----------public int[] getPixels(): return points array.
+ * ----------public int[] getVertex(): return vertex points array.
+ * Protected Methods:
+ * ----------protected void plotPixels(int dotX, int dotY): add a point to the points array.
  */
 public abstract class shapeAbs implements shapeInt, Serializable{	
 	private static final long serialVersionUID = 1000000L;
@@ -53,14 +56,6 @@ public abstract class shapeAbs implements shapeInt, Serializable{
 		this.x=p_x;
 		this.y=p_y;
 	}
-	public abstract void setPixels();
-	//public ArrayList<Vector2f> getPixels(){
-	public int[] getPixels(){	
-		return flatArrayList(this.pixels);
-	}
-	public int[] getVertex(){
-		return flatArrayList(this.vertexPixels);
-	}
 	public  boolean contains(Point p_p){
 		return this.getBounds().contains(p_p);
 	}
@@ -71,15 +66,29 @@ public abstract class shapeAbs implements shapeInt, Serializable{
 		return this.getBounds().intersect(p_s);
 	}
 	/*
-	 * class level functions
+	 * public functions
+	 */
+	public abstract void setPixels();
+	//public ArrayList<Vector2f> getPixels(){
+	public int[] getPixels(){	
+		return flatArrayList(this.pixels);
+	}
+	public int[] getVertex(){
+		return flatArrayList(this.vertexPixels);
+	}
+	public ArrayList<Vector2f> getPixelsList(){
+		return this.pixels;
+	}
+	public ArrayList<Vector2f> getVertexList(){
+		return this.vertexPixels;
+	}
+	/*
+	 * protected functions
 	 */
 	protected void plotPixels(int dotX, int dotY){
 		this.pixels.add(new Vector2f(dotX, dotY));
 	}
-	/*
-	 * private functions
-	 */
-	private int[] flatArrayList(ArrayList<Vector2f> p_al ){	
+	protected int[] flatArrayList(ArrayList<Vector2f> p_al ){	
 		//return this.pixels.toArray();
 		ArrayList<Vector2f> _dataIn=p_al;
 		int _length=_dataIn.size();

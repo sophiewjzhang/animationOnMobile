@@ -32,7 +32,7 @@ public class ProtoRoom extends View {
 		store1=new storeGrocery();
 		points=store1.getPixels();
 		//draw shapes in store1
-		points_poly=store1.drawPolygon(6, 150);
+		//points_poly=store1.drawPolygon(6, 150);
 	}
 	
 	
@@ -42,11 +42,12 @@ public class ProtoRoom extends View {
 		myCanvas=canvas;
 		myCanvas.translate(300, 400);
 		redPaint.setColor(Color.YELLOW);
-		redPaint.setStrokeWidth(5);
+		redPaint.setStrokeWidth(10);
 		plotPixels_room(points);	
-		redPaint.setStrokeWidth(20);
+		plotPixels_room(store1.getPixels2());
+		/*redPaint.setStrokeWidth(20);
 		redPaint.setColor(Color.RED);
-		plotPixels_room(points_poly);	
+		plotPixels_room(points_poly);	*/
 
 	}
 	private void plotPixels_room(int[] _points){
