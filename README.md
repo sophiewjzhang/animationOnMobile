@@ -1,4 +1,4 @@
-noodle-pro(name might be changed later)
+Animation On Mobile
 ==========
 
 A light framework designed to facilitate the graphic development for mobile application.  
